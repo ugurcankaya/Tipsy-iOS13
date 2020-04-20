@@ -68,9 +68,9 @@ class MainVC: UIViewController {
         print(billTotalTF.text ?? "0.0")
         people = Int(splitLabel.text!)
         
-        print("Total Bill: \(billTotalTF.text ?? "0") and Tip Rate: \(tipRate*10) and People : \(people)")
+        print("Total Bill: \(billTotalTF.text ?? "0") and Tip Rate: \(tipRate*100) and People : \(people!)")
         
-        
+        performSegue(withIdentifier: "presentSegue", sender: nil)
     }
     
   
