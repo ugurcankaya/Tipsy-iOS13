@@ -20,7 +20,7 @@ class SecondVC: UIViewController {
         super.viewDidLoad()
         let result:Float = Float( ((amount!*tipRate!) + amount!) / Float(persons!))
         destLabel.text = "Split between \(persons ?? 0), people with \(Int(tipRate!*100))% tips."
-        resultLabel.text = String(result)
+        resultLabel.text = String(format: "%.2f", result)
     }
     
     @IBAction func reCalculatePressed(_ sender: UIButton) {
