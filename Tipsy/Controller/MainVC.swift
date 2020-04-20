@@ -64,17 +64,33 @@ class MainVC: UIViewController {
    
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        print(tipRate)
-        print(billTotalTF.text ?? "0.0")
-        people = Int(splitLabel.text!)
         
-        print("Total Bill: \(billTotalTF.text ?? "0") and Tip Rate: \(tipRate*100) and People : \(people!)")
+        people = Int(splitLabel.text!)
+        amount = (billTotalTF.text! as! NSString).floatValue
+       
         
         performSegue(withIdentifier: "presentSegue", sender: nil)
     }
     
   
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //If the currently triggered segue is the "goToResults" segue.
+        if segue.identifier == "presentSegue" {
+            
+            //Get hold of the instance of the destination VC and type cast it to a ResultViewController.
+            let destinationVC = segue.destination as! SecondVC
+            destinationVC.tipRate = self.tipRate
+            destinationVC.amount = self.amount
+            destinationVC.persons = self.people
+            
+            
+            //Set the destination ResultsViewController's properties.
+            
+        }
+    }
+    
+    
 }
 
 extension UIViewController{
@@ -84,8 +100,8 @@ extension UIViewController{
         toolBar.isTranslucent = true
         toolBar.barTintColor = UIColor.init(red: 0/255, green: 25/255, blue: 61/255, alpha: 1)
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        var buttonTitle = "Done" //Or "Tamam"
-        var cancelButtonTitle = "Cancel" //Or "İptal" for Turkish
+        let buttonTitle = "Done"
+        let cancelButtonTitle = "Cancel"
         let doneButton = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(onClickDoneButton))
         let cancelButton = UIBarButtonItem(title: cancelButtonTitle, style: .plain, target: self, action: #selector(onClickCancelButton))
         doneButton.tintColor = .white
@@ -94,6 +110,7 @@ extension UIViewController{
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()
         return toolBar
+        
     }
 
     @objc func onClickDoneButton(){
@@ -104,3 +121,5 @@ extension UIViewController{
         view.endEditing(true)
     }
 }
+
+
