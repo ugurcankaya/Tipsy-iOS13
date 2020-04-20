@@ -10,21 +10,65 @@ import UIKit
 
 class MainVC: UIViewController {
 
+    
+    @IBOutlet var billTotalTF: UITextField!
+
+    @IBOutlet var tipBox0: UIButton!
+    @IBOutlet var tipBox10: UIButton!
+    @IBOutlet var tipBox20: UIButton!
+    @IBOutlet var stepBox1: UIStepper!
+    @IBOutlet var splitLabel: UILabel!
+    
+    
+    var amount:Float?
+    var tipRate:Float = 0.10
+    var people:Int?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func stepBox1_Changed(_ sender: UIStepper) {
+        splitLabel.text = String(Int( stepBox1.value))
     }
-    */
+    
+    @IBAction func tipBoxPressed(_ sender: UIButton) {
+        tipBox0.isSelected = false
+        tipBox10.isSelected = false
+        tipBox20.isSelected = false
+        
+        sender.isSelected = true
+        switch sender.tag {
+        case 0:
+            tipRate = 0.0
+        case 10:
+            tipRate = 0.10
+            break
+        case 20:
+            tipRate = 0.20
+            break
+        default:
+            break
+        
+        }
+        
+    }
+   
+    
+    @IBAction func calculateButtonPressed(_ sender: UIButton) {
+        print(tipRate)
+        print(billTotalTF.text ?? "0.0")
+        people = Int(splitLabel.text!)
+        
+        print("Total Bill: \(billTotalTF.text ?? "0") and Tip Rate: \(tipRate*10) and People : \(people)")
+        
+        
+    }
+    
+  
 
 }
