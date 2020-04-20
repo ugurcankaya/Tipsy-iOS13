@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C838D07244E4AA7001C2A37 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C9F84F2244E3647008DA59C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9F84F1244E3647008DA59C /* MainVC.swift */; };
 		3C9F84F4244E3656008DA59C /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9F84F3244E3656008DA59C /* SecondVC.swift */; };
 		ADB689532326708D006D4E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB689522326708D006D4E2B /* AppDelegate.swift */; };
@@ -15,6 +16,20 @@
 		ADB6895C2326708E006D4E2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADB6895B2326708E006D4E2B /* Assets.xcassets */; };
 		ADB6895F2326708E006D4E2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADB6895D2326708E006D4E2B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3C838D08244E4AA7001C2A37 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3C838D07244E4AA7001C2A37 /* BuildFile in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3C9F84F1244E3647008DA59C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -64,11 +79,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4574A23666D2E7A3B557961A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		ADB689462326708D006D4E2B = {
 			isa = PBXGroup;
 			children = (
 				ADB689512326708D006D4E2B /* Tipsy */,
 				ADB689502326708D006D4E2B /* Products */,
+				4574A23666D2E7A3B557961A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +127,7 @@
 				ADB6894B2326708D006D4E2B /* Sources */,
 				ADB6894C2326708D006D4E2B /* Frameworks */,
 				ADB6894D2326708D006D4E2B /* Resources */,
+				3C838D08244E4AA7001C2A37 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
